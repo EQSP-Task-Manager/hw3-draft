@@ -62,7 +62,7 @@ jobs:
     - name: Run container
       run: docker run -dti -p 8080:8080 --name hw3-app ${{ env.IMAGE_NAME }}:${{ github.sha }}
     - name: Request ping handler
-      run: curl -i localhost:8080/ping
+      run: curl -i http://localhost:8080/ping
     - name: Stop container
       run: |
         docker stop hw3-app
