@@ -59,6 +59,14 @@ jobs:
       uses: actions/checkout@v2.5.0
     - name: Build the Docker image
       run: docker build --tag ${{ env.IMAGE_NAME }}:${{ github.sha }} .
+    - name: Run container
+      run: docker run -dti -p 8080:8080 --name hw3-app ${{ env.IMAGE_NAME }}:${{ github.sha }}
+    - name: Request ping handler
+      run: curl -i localhost:8080/ping
+    - name: Stop container
+      run: |
+        docker stop hw3-app
+        docker rm hw3-app
     - name: Build failed
       if: ${{ failure() }}
       run: |
