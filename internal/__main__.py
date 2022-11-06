@@ -4,7 +4,6 @@ from .logger import setup_logger
 from .api import PingHandler
 from .api import logging_middleware, error_middleware
 
-
 def setup_app() -> web.Application:
     app = web.Application(
         middlewares=[logging_middleware, error_middleware]
