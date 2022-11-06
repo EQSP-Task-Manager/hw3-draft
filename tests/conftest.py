@@ -3,6 +3,7 @@ from aiohttp.test_utils import TestClient, TestServer
 
 from internal.__main__ import setup_app
 
+
 @pytest.fixture
 async def client() -> TestClient:
     app = setup_app()
