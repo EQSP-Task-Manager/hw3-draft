@@ -33,11 +33,12 @@ jobs:
     - name: Lint the project
       run: |
         pip install flake8
-        flake8
+        flake8 internal/
 
     - name: Run tests
       run: |
         pip install pytest
+        ls
         pytest internal/
 
     - name: Build the Docker image
