@@ -33,13 +33,13 @@ jobs:
     - name: Lint the project
       run: |
         pip install flake8
-        flake8 internal/
+        flake8 .
 
     - name: Run tests
       run: |
         pip install pytest
         ls
-        pytest internal/
+        pytest tests/
 
     - name: Build the Docker image
       run: docker build --tag ${{ env.IMAGE_NAME }}:${{ github.sha }} .
